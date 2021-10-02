@@ -15,8 +15,10 @@ Your task is to create a Python script that analyzes the votes and calculates ea
 import os
 import csv
 
+# designate resource file path
 csvpath = os.path.join("Resources", "election_data.csv")
 
+# initialize variables & create lists
 total_votes = 0
 candidates = []
 Khan_votes = 0
@@ -29,6 +31,7 @@ with open(csvpath, newline='') as csvfile:
     csvreader = csv.reader(csvfile, delimiter= ",")
     csvheader = next(csvreader)
     
+    # loop through rows to calculate values for anlysis
     for row in csvreader:
         total_votes = total_votes + 1
         
@@ -60,6 +63,7 @@ with open(csvpath, newline='') as csvfile:
     else:
         winner_name = "O'Tooley"
 
+# print analysis
 print("Election Results")
 print("----------------")
 print(f"Total Votes: {total_votes}")
@@ -71,6 +75,7 @@ print(f"O'Tooley: {OTooley_percent:.3%} ({OTooley__votes})")
 print("----------------")
 print(f"Winner: {winner_name}")
 
+# export analysis to text fie
 output_file = os.path.join("Analysis", "election_data_analysis.text")
 
 with open(output_file, 'w',) as txtfile:

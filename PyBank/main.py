@@ -15,8 +15,10 @@ Your task is to create a Python script that analyzes the records to calculate ea
 import os
 import csv
 
+# designate resource file path
 csvpath = os.path.join("Resources", "budget_data.csv")
 
+# initialize variables & create lists
 total_months = 0
 total_profit = 0
 profit_changes = []
@@ -36,7 +38,8 @@ with open(csvpath, newline='') as csvfile:
     row = next(csvreader)
     
     previous_row = int(row[1])
-
+    
+    # loop through rows to calculate values for anlysis
     for row in csvreader:
         total_months = total_months + 1
 
@@ -60,12 +63,14 @@ with open(csvpath, newline='') as csvfile:
     highest = max(profit_changes)
     lowest = min(profit_changes)
 
+    # print analysis
     print(f"Total Months: {total_months}") 
     print(f"Total: ${total_profit}")
     print(f"Average Change: ${average_change:.2f}")
     print(f"Greatest Increase in Profits: {greatest_increse_month}, (${highest})")
     print(f"Greatest Decrease in Profits: {greatest_decrease_month}, (${lowest})")
 
+# export analysis to text fie
 output_file = os.path.join("Analysis", "budget_data_analysis.text")
 
 with open(output_file, 'w',) as txtfile:
