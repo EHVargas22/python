@@ -1,7 +1,7 @@
 **PyBank Summary:**
 Created a Python script for the analysis of financial records.
 
-**Python script analyzes the records to calculate: **
+**Python script analyzes the records to calculate:**
 - The total number of months included in the dataset
 - The net total amount of "Profit/Losses" over the entire period
 - Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
